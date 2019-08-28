@@ -1,0 +1,16 @@
+name: Docker Package
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  package:
+    name: Docker image build
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Create docker image
+        run: docker build -t vanbrands/flask .
+      - name: Create tag
+        run: docker tag vanbrands/flask docker.pkg.github.com/vanbrands/flask
