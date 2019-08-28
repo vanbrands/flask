@@ -6,11 +6,9 @@ on:
 
 jobs:
   package:
-    name: Docker image build
+    name: Create Image
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1
       - name: Create docker image
-        run: docker build -t vanbrands/flask .
-      - name: Create tag
-        run: docker tag vanbrands/flask docker.pkg.github.com/vanbrands/flask
+        run: docker build -t docker.pkg.github.com/vanbrands/flask .
