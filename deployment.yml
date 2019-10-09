@@ -28,8 +28,10 @@ metadata:
   labels:
     app: flask
 spec:
+  type: NodePort
   ports:
   - port: 5000
     protocol: TCP
+    targetPort: 5000
   selector:
     app: flask
